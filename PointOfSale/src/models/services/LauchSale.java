@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import models.entities.Client;
 import models.entities.Sale;
 import models.exception.PointOfSale;
+import models.utils.utils;
 
 public class LauchSale {
 
@@ -23,11 +24,12 @@ public class LauchSale {
             double valuefinalinstallments = valuefinal/installments;
             client.removeLimit(valuefinal);
             for (int i = 1; i<installments+1; i++){
-                //vai lançar as parcelas no banco de dados
+                LocalDateTime installmentdate = now.plusMonths(i);
+                
             }    
         
         }catch (PointOfSale e ) {
-            
+            System.out.println(e.getMessage());
         }
         
     }

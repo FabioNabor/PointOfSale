@@ -2,6 +2,7 @@ package models.services;
 
 import models.entities.Sale;
 import models.exception.PointOfSale;
+import models.utils.utils;
 
 public class SimulationSale {
 
@@ -12,12 +13,12 @@ public class SimulationSale {
         try {
             double finalvalue = CalculationSale.calculationFinalValue(sale);
             double installments = CalculationSale.calculationFinalValue(sale)/sale.getInstallments();
-            simulation.append("------Simulation Safe------");
-            simulation.append("Purchase Value: "+sale.getValue());
-            simulation.append("Installments: "+sale.getInstallments());
-            simulation.append("------Final Simulation------");
-            simulation.append("Purchase Value Final: "+finalvalue);
-            simulation.append("Value Installments: R$"+installments+"");
+            simulation.append("------Simulation Safe------\n");
+            simulation.append("Purchase Value: "+sale.getValue()+"\n");
+            simulation.append("Installments: "+sale.getInstallments()+"\n");
+            simulation.append("------Final Simulation------"+"\n");
+            simulation.append("Purchase Value Final: "+utils.formatMoney(finalvalue)+"\n");
+            simulation.append("Value Installment: R$"+utils.formatMoney(installments)+"\n");
         }catch (PointOfSale e ) {
             simulation.append(e.getMessage());
         }
