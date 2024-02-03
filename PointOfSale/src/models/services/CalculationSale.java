@@ -7,7 +7,9 @@ public class CalculationSale {
 
     public static double calculationFinalValue(Sale sale) throws PointOfSale{
         if (sale.getInstallments() == 0 || sale.getValue() == 0) {
-            throw new PointOfSale("Quantidade de Parcelas ou Valor devem ser maior que zero!"); 
+            throw new PointOfSale(
+                "Number of Installments or Value must be greater than zero!"
+            ); 
         }
         if (sale.getInstallments() == 1){
             return sale.getValue();

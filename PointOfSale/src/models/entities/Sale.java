@@ -4,7 +4,6 @@ import models.enums.StatusSale;
 
 public class Sale {
 
-    Client client;
 
     Store store;
 
@@ -18,8 +17,7 @@ public class Sale {
         
     }
 
-    public Sale(Client client, Store store, double value, int installments) {
-        this.client = client;
+    public Sale(Store store, double value, int installments) {
         this.store = store;
         this.value = value;
         this.installments = installments;
@@ -45,10 +43,6 @@ public class Sale {
 
     public void setInstallments(int installments) {
         this.installments = installments;
-    }
-
-    public Client getClient() {
-        return client;
     }
 
 }
